@@ -1,5 +1,5 @@
 import { useState, useRef, useMemo } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import ImageUploader from './components/ImageUploader';
 import { computeDiff, loadImage } from './utils/computeDiff';
 import './App.css';
@@ -203,10 +203,7 @@ function App() {
                 itemStyle={{ color: '#e94560' }}
                 formatter={(value) => [`${value}%`, 'Skillnad']}
               />
-              <Bar dataKey="diff" radius={[4, 4, 0, 0]}>
-                {chartData.map((entry, i) => (
-                  <Cell key={i} fill={entry.diff > 10 ? '#e94560' : '#0f3460'} />
-                ))}
+              <Bar dataKey="diff" radius={[4, 4, 0, 0]} fill="#e94560">
               </Bar>
             </BarChart>
           </ResponsiveContainer>
